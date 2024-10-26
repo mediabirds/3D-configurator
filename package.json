@@ -1,5 +1,9 @@
 {
     "name": "@mediabirds/3d-configurator",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mediabirds/3D-configurator"
+    },
     "private": true,
     "version": "1.0.0",
     "type": "module",
