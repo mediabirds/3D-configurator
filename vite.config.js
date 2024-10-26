@@ -1,4 +1,5 @@
 import ts from '@rollup/plugin-typescript'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 /** @type {import('vite').UserConfig} */
 export default {
@@ -9,13 +10,22 @@ export default {
             declarationDir: 'dist', // Output for .d.ts files
             rootDir: 'src', // Source root
         }),
+        viteStaticCopy({
+            targets: [
+                {
+                    src: 'package.json',
+                    dest: '',
+                },
+            ],
+        }),
     ],
     build: {
         outDir: 'dist',
         lib: {
             entry: 'src/main.ts',
             formats: ['es'],
+            fileName: 'configurator',
         },
     },
-    assetsInclude: ['autumn_field_puresky_1k.hdr'],
+    publicDir: false,
 }
