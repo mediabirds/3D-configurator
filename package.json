@@ -9,7 +9,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "tsc && vite build",
+        "build": "pnpm run build:module && pnpm run build:docs",
+        "build:module": "tsc && vite build",
         "build:docs": "tsc && vite build --config vite.config.docs.js",
         "preview": "vite preview"
     },

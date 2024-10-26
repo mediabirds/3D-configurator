@@ -10,7 +10,6 @@ export default {
             rootDir: 'src', // Source root
         }),
     ],
-    publicDir: false,
     build: {
         outDir: 'dist',
         lib: {
