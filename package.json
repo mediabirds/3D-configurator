@@ -4,6 +4,7 @@
         "type": "git",
         "url": "https://github.com/mediabirds/3D-configurator"
     },
+    "homepage": "https://username.github.io/repo-name",
     "private": true,
     "version": "1.0.0",
     "type": "module",
