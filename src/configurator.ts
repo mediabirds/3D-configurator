@@ -5,6 +5,7 @@ import * as THREE from 'three'
 import { Lens } from './meshes/lens'
 import { Strap } from './meshes/strap'
 import { Frame } from './meshes/frame'
+import DefaultEnvironmentUrl from '../src/assets/autumn_field_puresky_1k.hdr?url'
 
 export class Configurator {
     /**
@@ -67,7 +68,17 @@ export class Configurator {
      */
     readonly strap!: Strap
 
-    constructor(protected gltf: GLTF, protected element: HTMLElement) {
+    /**
+     * Should not be called directly. Use `Configurator.load` instead.
+     *
+     * @param gltf      - The GLTF model
+     * @param element   - The element which the configurator will be appended to
+     * @protected
+     */
+    protected constructor(
+        protected gltf: GLTF,
+        protected element: HTMLElement,
+    ) {
         this.scene = new THREE.Scene()
         this.renderer = new THREE.WebGLRenderer({ antialias: true })
         this.camera = new THREE.PerspectiveCamera(75, element.clientWidth / element.clientHeight, 0.1, 1000)
@@ -103,11 +114,21 @@ export class Configurator {
         this.render()
     }
 
+    /**
+     * Initialize the configurator
+     *
+     * @protected
+     */
     protected init() {
         this.initRenderer()
         this.initScene()
     }
 
+    /**
+     * Initialize the renderer
+     *
+     * @protected
+     */
     protected initRenderer() {
         const { width, height } = this.element.getBoundingClientRect()
 
@@ -124,15 +145,20 @@ export class Configurator {
         this.camera.position.set(150, 150, 150)
     }
 
+    /**
+     * Initialize the scene
+     *
+     * @protected
+     */
     protected initScene() {
-        const rgbeLoader = new RGBELoader()
-        rgbeLoader.load('/autumn_field_puresky_1k.hdr', (texture) => {
-            texture.mapping = THREE.EquirectangularReflectionMapping
-            this.scene.environment = texture
-            //this.scene.background = texture
-        })
+        this.setEnvironment(DefaultEnvironmentUrl)
     }
 
+    /**
+     * Render the scene
+     *
+     * @protected
+     */
     protected render() {
         requestAnimationFrame(this.render.bind(this))
 
@@ -140,6 +166,30 @@ export class Configurator {
         this.renderer.render(this.scene, this.camera)
     }
 
+    /**
+     * Set the scene environment
+     *
+     * @param hdrimage - Path to the HDR image
+     */
+    public async setEnvironment(hdrimage: string) {
+        try {
+            const rgbeLoader = new RGBELoader()
+            const texture = await rgbeLoader.loadAsync(hdrimage)
+
+            texture.mapping = THREE.EquirectangularReflectionMapping
+            this.scene.environment = texture
+        } catch (error) {
+            console.error('Error loading HDR image:', error)
+            throw error
+        }
+    }
+
+    /**
+     * Load and create new `Configurator` instance
+     *
+     * @param model     - Path to the GLTF model
+     * @param element   - Element which the configurator will be appended to
+     */
     static async load(model: string, element: HTMLElement) {
         const loader = new GLTFLoader()
         try {

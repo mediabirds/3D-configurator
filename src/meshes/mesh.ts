@@ -5,9 +5,15 @@ export class Mesh {
      * Three MeshStandardMaterial
      *
      * @readonly
+     * @see {@link https://threejs.org/docs/#api/en/materials/MeshStandardMaterial}
      */
     readonly material: THREE.MeshStandardMaterial
-
+    /**
+     * Load textures using this loader
+     *
+     * @readonly
+     * @see {@link https://threejs.org/docs/#api/en/loaders/TextureLoader}
+     */
     readonly textureLoader: THREE.TextureLoader
 
     constructor(readonly mesh: THREE.Mesh) {
@@ -29,7 +35,6 @@ export class Mesh {
      * @param color
      */
     setColor(color: THREE.ColorRepresentation) {
-        console.log(color)
         this.material.color.set(color)
     }
 }
