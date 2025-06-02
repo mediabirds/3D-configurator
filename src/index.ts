@@ -1,5 +1,5 @@
 import { Configurator } from './configurator'
-import DemoModelUrl from './assets/Styx-With-Strap.glb?url'
+import DemoModelUrl from './assets/asset-3.glb?url'
 
 import './style.css'
 

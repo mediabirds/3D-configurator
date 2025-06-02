@@ -88,7 +88,8 @@ export class Configurator {
 
         model.traverse((child: THREE.Object3D) => {
             if ((child as THREE.Mesh).isMesh) {
-                if (child.name === 'Lens') {
+                if (child.name === 'LensR_geometry') {
+                    console.log(child)
                     // @ts-ignore
                     this.lens = new Lens(child as THREE.Mesh)
                 }
@@ -106,6 +107,20 @@ export class Configurator {
         })
 
         element.appendChild(this.renderer.domElement)
+        this.scene.add(model)
+
+        // Calculate model bounds for better camera positioning
+        const box = new THREE.Box3().setFromObject(model)
+        const center = box.getCenter(new THREE.Vector3())
+        const size = box.getSize(new THREE.Vector3())
+
+        // Position camera based on model size
+        const maxDim = Math.max(size.x, size.y, size.z)
+        const cameraDistance = maxDim * 2
+
+        this.camera.position.set(cameraDistance, cameraDistance, cameraDistance)
+        this.camera.lookAt(center)
+        this.controls.target.copy(center)
 
         this.scene.add(model)
         this.initRenderer()
@@ -142,7 +157,15 @@ export class Configurator {
         this.controls.dampingFactor = 0.05
         this.controls.maxDistance = 500
 
-        this.camera.position.set(150, 150, 150)
+        // Add resize handler
+        window.addEventListener('resize', this.onWindowResize.bind(this))
+    }
+
+    private onWindowResize() {
+        const { width, height } = this.element.getBoundingClientRect()
+        this.camera.aspect = width / height
+        this.camera.updateProjectionMatrix()
+        this.renderer.setSize(width, height)
     }
 
     /**

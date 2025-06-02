@@ -7,18 +7,8 @@ export class Lens extends Mesh {
     constructor(readonly mesh: THREE.Mesh) {
         super(mesh)
 
-        this.material = new THREE.MeshPhysicalMaterial({
-            color: 0xe73240,
-            metalness: 0.8,
-            roughness: 0,
-            iridescence: 1,
-            iridescenceIOR: 1.2,
-            ior: 0.02,
-            transparent: true,
-            opacity: 0.95,
-            reflectivity: 0,
-        })
-
+        this.material = mesh.material as THREE.MeshPhysicalMaterial
+        console.log(mesh.material)
         this.mesh.material = this.material
     }
 
