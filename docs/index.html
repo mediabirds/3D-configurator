@@ -5,54 +5,152 @@
         <link rel="icon" type="image/svg+xml" href="/3D-configurator/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Newsports - 3D Configurator</title>
-      <script type="module" crossorigin src="/3D-configurator/assets/index-BJ7heP3_.js"></script>
-      <link rel="stylesheet" crossorigin href="/3D-configurator/assets/index-CcAOkqoE.css">
+      <script type="module" crossorigin src="/3D-configurator/assets/index-DXPNAWj6.js"></script>
+      <link rel="stylesheet" crossorigin href="/3D-configurator/assets/index-BKaqQgw3.css">
     </head>
     <body>
         <div id="app" class="flex h-screen w-screen">
-            <div id="controls" class="min-w-[350px] bg-gray-200">
+            <div id="controls" class="min-w-[350px] overflow-y-auto bg-gray-200">
+                <!-- Frame Selection -->
                 <div class="p-4">
-                    <h4 class="mb-4 text-lg font-bold">Lens color</h4>
+                    <h4 class="mb-4 text-lg font-bold">Frame Model</h4>
+                    <div class="flex flex-col gap-2">
+                        <label class="flex items-center gap-2">
+                            <input
+                                type="radio"
+                                name="frame"
+                                value="frame-styx-019"
+                                class="peer"
+                                id="frame-styx-019"
+                                checked
+                            />
+                            <span class="peer-checked:font-bold">Styx Black</span>
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="frame" value="frame-styx-020" class="peer" id="frame-styx-020" />
+                            <span class="peer-checked:font-bold">Styx Dark</span>
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="radio" name="frame" value="frame-styx-027" class="peer" id="frame-styx-027" />
+                            <span class="peer-checked:font-bold">Styx White</span>
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input
+                                type="radio"
+                                name="frame"
+                                value="frame-orion-017"
+                                class="peer"
+                                id="frame-orion-017"
+                            />
+                            <span class="peer-checked:font-bold">Orion Black</span>
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input
+                                type="radio"
+                                name="frame"
+                                value="frame-kepler-006"
+                                class="peer"
+                                id="frame-kepler-006"
+                            />
+                            <span class="peer-checked:font-bold">Kepler Black</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Lens Selection -->
+                <div class="p-4">
+                    <h4 class="mb-4 text-lg font-bold">Lens Color</h4>
                     <div class="flex gap-3">
                         <label>
-                            <input type="radio" name="color" value="#DB6404" class="peer hidden" id="color-1" />
+                            <input
+                                type="radio"
+                                name="lens"
+                                value="lens-orange"
+                                class="peer hidden"
+                                id="lens-orange"
+                                checked
+                            />
                             <label
-                                for="color-1"
-                                class="block h-8 w-8 rounded-full bg-gradient-to-br from-[#DB6404] to-[#DB6404]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
+                                for="lens-orange"
+                                class="block h-8 w-8 cursor-pointer rounded-full bg-gradient-to-br from-[#DB6404] to-[#DB6404]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
                             ></label>
                         </label>
                         <label>
-                            <input type="radio" name="color" value="#E162C3" class="peer hidden" id="color-2" />
+                            <input type="radio" name="lens" value="lens-pink" class="peer hidden" id="lens-pink" />
                             <label
-                                for="color-2"
-                                class="block h-8 w-8 rounded-full bg-gradient-to-br from-[#E162C3] to-[#E162C3]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
+                                for="lens-pink"
+                                class="block h-8 w-8 cursor-pointer rounded-full bg-gradient-to-br from-[#E162C3] to-[#E162C3]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
                             ></label>
                         </label>
                         <label>
-                            <input type="radio" name="color" value="#6D11DD" class="peer hidden" id="color-3" />
+                            <input type="radio" name="lens" value="lens-purple" class="peer hidden" id="lens-purple" />
                             <label
-                                for="color-3"
-                                class="block h-8 w-8 rounded-full bg-gradient-to-br from-[#6D11DD] to-[#6D11DD]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
+                                for="lens-purple"
+                                class="block h-8 w-8 cursor-pointer rounded-full bg-gradient-to-br from-[#6D11DD] to-[#6D11DD]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
                             ></label>
                         </label>
                         <label>
-                            <input type="radio" name="color" value="#434343" class="peer hidden" id="color-4" />
+                            <input type="radio" name="lens" value="lens-dark" class="peer hidden" id="lens-dark" />
                             <label
-                                for="color-4"
-                                class="block h-8 w-8 rounded-full bg-gradient-to-br from-[#434343] to-[#434343]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
+                                for="lens-dark"
+                                class="block h-8 w-8 cursor-pointer rounded-full bg-gradient-to-br from-[#434343] to-[#434343]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
                             ></label>
                         </label>
                         <label>
-                            <input type="radio" name="color" value="#5CB1E9" class="peer hidden" id="color-5" />
+                            <input type="radio" name="lens" value="lens-blue" class="peer hidden" id="lens-blue" />
                             <label
-                                for="color-5"
-                                class="block h-8 w-8 rounded-full bg-gradient-to-br from-[#5CB1E9] to-[#5CB1E9]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
+                                for="lens-blue"
+                                class="block h-8 w-8 cursor-pointer rounded-full bg-gradient-to-br from-[#5CB1E9] to-[#5CB1E9]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
                             ></label>
                         </label>
                     </div>
                 </div>
+
+                <!-- Strap Selection -->
                 <div class="p-4">
-                    <h4 class="mb-4 text-lg font-bold">Frame color</h4>
+                    <h4 class="mb-4 text-lg font-bold">Strap Print</h4>
+                    <div class="flex gap-3">
+                        <label>
+                            <input
+                                type="radio"
+                                name="strap"
+                                value="strap-sd124"
+                                class="peer hidden"
+                                id="strap-sd124"
+                                checked
+                            />
+                            <label
+                                for="strap-sd124"
+                                class="block h-8 w-8 cursor-pointer rounded-full bg-[url('/SD144_Print-fixed.png')] bg-cover bg-left peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
+                            ></label>
+                        </label>
+                        <label>
+                            <input type="radio" name="strap" value="strap-sd127" class="peer hidden" id="strap-sd127" />
+                            <label
+                                for="strap-sd127"
+                                class="block h-8 w-8 cursor-pointer rounded-full bg-[url('/SD145_Print.jpg')] bg-cover bg-left peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
+                            ></label>
+                        </label>
+                        <label>
+                            <input type="radio" name="strap" value="strap-sd133" class="peer hidden" id="strap-sd133" />
+                            <label
+                                for="strap-sd133"
+                                class="block h-8 w-8 cursor-pointer rounded-full bg-[url('/SD156_Print.jpg')] bg-cover bg-left peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
+                            ></label>
+                        </label>
+                        <label>
+                            <input type="radio" name="strap" value="strap-sd134" class="peer hidden" id="strap-sd134" />
+                            <label
+                                for="strap-sd134"
+                                class="block h-8 w-8 cursor-pointer rounded-full bg-[url('/SD159_Print.jpg')] bg-cover bg-left peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
+                            ></label>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Legacy Color Options (for dynamic color changes) -->
+                <div class="border-t border-gray-300 p-4">
+                    <h4 class="mb-4 text-lg font-bold">Frame Color Override</h4>
                     <div class="flex gap-3">
                         <label>
                             <input
@@ -64,7 +162,7 @@
                             />
                             <label
                                 for="frame-color-1"
-                                class="block h-8 w-8 rounded-full bg-gradient-to-br from-[#dcdcdc] to-[#dcdcdc]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
+                                class="block h-8 w-8 cursor-pointer rounded-full bg-gradient-to-br from-[#dcdcdc] to-[#dcdcdc]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
                             ></label>
                         </label>
                         <label>
@@ -77,7 +175,7 @@
                             />
                             <label
                                 for="frame-color-2"
-                                class="block h-8 w-8 rounded-full bg-gradient-to-br from-[#242424] to-[#242424]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
+                                class="block h-8 w-8 cursor-pointer rounded-full bg-gradient-to-br from-[#242424] to-[#242424]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
                             ></label>
                         </label>
                         <label>
@@ -90,16 +188,17 @@
                             />
                             <label
                                 for="frame-color-3"
-                                class="block h-8 w-8 rounded-full bg-gradient-to-br from-[#474747] to-[#474747]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
+                                class="block h-8 w-8 cursor-pointer rounded-full bg-gradient-to-br from-[#474747] to-[#474747]/40 peer-checked:ring-4 peer-checked:ring-purple-500/40 peer-checked:ring-offset-1"
                             ></label>
                         </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name="frame-color"
-                                value="#da6b6b"
-                                class="peer hidden"
-                                id="frame-color-4"
+                    </div>
+                </div>
+            </div>
+            <div id="configurator" class="flex-grow"></div>
+        </div>
+    </body>
+</html>
+
                             />
                             <label
                                 for="frame-color-4"
