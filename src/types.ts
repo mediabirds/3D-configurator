@@ -1,58 +1,42 @@
 /**
  * Configuration types for the 3D ski goggle configurator
- * These will later be populated from WordPress WooCommerce
  */
 
 /**
- * Represents a frame option
+ * Represents a frame option from WooCommerce
  */
 export interface FrameOption {
     id: string
     name: string
-    modelPath: string
-    color?: string
+    modelUrl: string
 }
 
 /**
- * Represents a lens option
+ * Represents a lens option from WooCommerce
  */
 export interface LensOption {
     id: string
     name: string
-    modelPath: string
-    color: string
-    description?: string
+    modelUrl: string
 }
 
 /**
- * Represents a strap option
+ * Represents a strap option from WooCommerce
  */
 export interface StrapOption {
     id: string
     name: string
-    modelPath: string
-    printPath?: string
-    color?: string
-    description?: string
+    modelUrl: string
 }
 
 /**
- * Complete configuration for a goggle
+ * WooCommerce product data structure
  */
-export interface GoggleConfiguration {
-    frame: FrameOption
-    lenses: LensOption[]
-    straps: StrapOption[]
-}
-
-/**
- * Options for initializing the configurator
- */
-export interface ConfiguratorOptions {
+export interface WooCommerceProductData {
     frames: FrameOption[]
     lenses: LensOption[]
     straps: StrapOption[]
-    defaultConfiguration?: {
+    defaults?: {
         frameId?: string
         lensId?: string
         strapId?: string
