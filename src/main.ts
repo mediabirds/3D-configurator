@@ -1,21 +1,30 @@
 import { Configurator } from './configurator'
 import type { WooCommerceProductData } from './types'
+import environmentUrl from './assets/autumn_field_puresky_1k.hdr?url'
+
+// Import models via Vite
+import frame1Url from './assets/frames/FRAME_Styx_MOST019_001.glb?url'
+import frame2Url from './assets/frames/FRAME_Styx_MOST020_001.glb?url'
+import lens1Url from './assets/kepler/KEPLER_ESKP115.glb?url'
+import lens2Url from './assets/kepler/KEPLER_ESKP116.glb?url'
+import strap1Url from './assets/straps/Strap_SD124_003.glb?url'
+import strap2Url from './assets/straps/Strap_SD127_002.glb?url'
 
 import './style.css'
 
 // Example: Simulated WooCommerce data (replace with actual API call)
 const wooCommerceData: WooCommerceProductData = {
     frames: [
-        { id: 'frame-1', name: 'Styx Black', modelUrl: '/assets/frames/FRAME_Styx_MOST019_001.glb' },
-        { id: 'frame-2', name: 'Styx White', modelUrl: '/assets/frames/FRAME_Styx_MOST020_001.glb' },
+        { id: 'frame-1', name: 'Styx Black', modelUrl: frame1Url },
+        { id: 'frame-2', name: 'Styx White', modelUrl: frame2Url },
     ],
     lenses: [
-        { id: 'lens-1', name: 'Orange', modelUrl: '/assets/kepler/KEPLER_ESKP115.glb' },
-        { id: 'lens-2', name: 'Blue', modelUrl: '/assets/kepler/KEPLER_ESKP116.glb' },
+        { id: 'lens-1', name: 'Orange', modelUrl: lens1Url },
+        { id: 'lens-2', name: 'Blue', modelUrl: lens2Url },
     ],
     straps: [
-        { id: 'strap-1', name: 'Black Strap', modelUrl: '/assets/straps/Strap_SD124_003.glb' },
-        { id: 'strap-2', name: 'White Strap', modelUrl: '/assets/straps/Strap_SD127_002.glb' },
+        { id: 'strap-1', name: 'Black Strap', modelUrl: strap1Url },
+        { id: 'strap-2', name: 'White Strap', modelUrl: strap2Url },
     ],
     defaults: {
         frameId: 'frame-1',
@@ -34,7 +43,7 @@ async function init() {
     const configurator = new Configurator(container)
 
     // Load environment
-    await configurator.setEnvironment('/assets/autumn_field_puresky_1k.hdr')
+    await configurator.setEnvironment(environmentUrl)
 
     // Load default models
     const defaultFrame = wooCommerceData.frames.find((f) => f.id === wooCommerceData.defaults?.frameId)
