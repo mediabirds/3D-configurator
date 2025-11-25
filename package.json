@@ -2,7 +2,7 @@
     "name": "@mediabirds/3d-configurator",
     "repository": {
         "type": "git",
-        "url": "https://github.com/mediabirds/3D-configurator"
+        "url": "git+https://github.com/mediabirds/3D-configurator.git"
     },
     "homepage": "https://username.github.io/repo-name",
     "version": "2.0.1",
